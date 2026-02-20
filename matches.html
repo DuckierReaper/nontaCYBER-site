@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nonta228 — МАТЧИ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        
+        :root {
+            --neon-purple: #c026d3;
+            --neon-cyan: #22d3ee;
+            --neon-amber: #f59e0b;
+        }
+        
+        body {
+            font-family: system-ui, sans-serif;
+            background: #0f172a;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .logo-font {
+            font-family: 'Press Start 2P', system-ui;
+        }
+
+        .neon-text {
+            text-shadow: 
+                0 0 10px var(--neon-purple),
+                0 0 20px var(--neon-purple),
+                0 0 40px var(--neon-cyan);
+        }
+
+        .match-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #18181b, #0f172a);
+            border: 1px solid rgba(192, 38, 211, 0.25);
+        }
+        
+        .match-card:hover {
+            transform: scale(1.04) translateY(-12px);
+            box-shadow: 0 0 80px -15px var(--neon-purple);
+            border-color: var(--neon-purple);
+        }
+
+        .scanline::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(255,255,255,0.03) 50%);
+            background-size: 100% 6px;
+            pointer-events: none;
+            animation: scan 12s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 1200px; }
+        }
+
+        .win-badge {
+            background: linear-gradient(45deg, #10b981, #34d399);
+            box-shadow: 0 0 20px #10b98180;
+        }
+
+        /* Стили для модального окна */
+        #replayModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 2px solid #c026d3;
+            border-radius: 1.5rem;
+            padding: 3rem 2.5rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 0 60px rgba(192, 38, 211, 0.6);
+            animation: popIn 0.4s ease-out;
+            position: relative;
+        }
+        
+        @keyframes popIn {
+            0% { transform: scale(0.7); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: #c026d3;
+            transition: all 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: white;
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body class="min-h-screen py-16 md:py-24 scanline relative">
+
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-20">
+            <span class="inline-block px-10 py-4 bg-gradient-to-r from-purple-950 to-pink-950 text-purple-300 text-base font-bold tracking-[6px] rounded-full mb-8 uppercase">
+                nonta228 • 0 ПОРАЖЕНИЙ • СЕЗОН 2026
+            </span>
+            <h1 class="text-7xl md:text-9xl font-black tracking-[-0.08em] neon-text leading-none">
+                МАТЧИ
+            </h1>
+            <p class="mt-6 text-3xl md:text-4xl text-zinc-400 font-medium">
+                КАРТА ГОВОРИТ НАМ "СПАСИБО ЗА УНИЧТОЖЕНИЕ"
+            </p>
+        </div>
+
+        <div class="space-y-16 md:space-y-24">
+            
+            <!-- Матч 1 (с кнопкой и модалкой) -->
+            <div class="match-card rounded-3xl overflow-hidden relative p-8 md:p-12">
+                <div class="absolute top-8 left-8 bg-black/70 px-6 py-3 text-lg font-mono tracking-widest rounded-xl border border-purple-500/40">
+                    15.02.2026 • BO3
+                </div>
+                
+                <div class="absolute top-8 right-8 win-badge text-black text-xl font-black px-10 py-4 rounded-2xl shadow-2xl rotate-6">
+                    ПОБЕДА 2:0
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-10 items-center text-center md:text-left">
+                    <div>
+                        <h3 class="text-5xl md:text-6xl font-black tracking-tighter neon-text">nonta228</h3>
+                        <p class="text-2xl text-emerald-400 mt-2">SHADOW • DRAGON • WOLF</p>
+                    </div>
+                    
+                    <div class="text-6xl md:text-8xl font-black text-purple-400">VS</div>
+                    
+                    <div>
+                        <h3 class="text-5xl md:text-6xl font-black tracking-tighter text-zinc-500">Какие-то ноунеймы</h3>
+                        <p class="text-xl text-zinc-600 mt-2">0-2 • GG WP (не)</p>
+                    </div>
+                </div>
+                
+                <div class="mt-12 grid md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-black/50 p-6 rounded-2xl border border-purple-500/30">
+                        <p class="text-4xl font-black text-purple-400">princess nonta</p>
+                        <p class="text-2xl text-amber-400 mt-2">SF • 32-1-14 • 680 GPM</p>
+                    </div>
+                    <div class="bg-black/50 p-6 rounded-2xl border border-cyan-500/30">
+                        <p class="text-4xl font-black text-cyan-400">duckierreaper</p>
+                        <p class="text-2xl text-amber-400 mt-2">Jakiro • 4-2-38 • 100% save</p>
+                    </div>
+                    <div class="bg-black/50 p-6 rounded-2xl border border-amber-500/30">
+                        <p class="text-4xl font-black text-amber-400">k1_zaz</p>
+                        <p class="text-2xl text-amber-400 mt-2">Lycan • 18-0-22 • rax на 21-й</p>
+                    </div>
+                </div>
+                
+                <div class="mt-10 text-center">
+                    <button 
+                        onclick="openReplayModal()"
+                        class="inline-block px-12 py-6 bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-500 rounded-2xl text-2xl font-black hover:scale-110 transition-transform shadow-xl shadow-purple-500/50">
+                        СМОТРЕТЬ РЕПЛЕЙ → (кринж 100%)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Матч 2 -->
+            <div class="match-card rounded-3xl overflow-hidden relative p-8 md:p-12">
+                <div class="absolute top-8 left-8 bg-black/70 px-6 py-3 text-lg font-mono tracking-widest rounded-xl border border-purple-500/40">
+                    10.02.2026 • BO5
+                </div>
+                
+                <div class="absolute top-8 right-8 win-badge text-black text-xl font-black px-10 py-4 rounded-2xl shadow-2xl -rotate-6">
+                    3:0 • СЛИВ ТРОНА ЗА 28 МИН
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-10 items-center text-center md:text-left">
+                    <div>
+                        <h3 class="text-5xl md:text-6xl font-black tracking-tighter neon-text">nonta228</h3>
+                    </div>
+                    <div class="text-6xl md:text-8xl font-black text-purple-400">VS</div>
+                    <div>
+                        <h3 class="text-5xl md:text-6xl font-black tracking-tighter text-zinc-500">Враг рода человеческого</h3>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center text-3xl md:text-4xl font-black tracking-widest text-emerald-400">
+                    0 МИНУТ НА ПАУЗЕ • 0 ОШИБОК • 100% ДОМИНАЦИЯ
+                </div>
+            </div>
+
+            <!-- Заглушка -->
+            <div class="text-center py-20">
+                <p class="text-5xl font-black neon-text opacity-70">СЛЕДУЮЩИЙ МАТЧ: СЕГОДНЯ • ПРОТИВ ВСЕХ • ПОБЕДА 100%</p>
+                <p class="mt-6 text-2xl text-zinc-500">0 поражений навсегда • nonta228 forever</p>
+            </div>
+        </div>
+
+        <div class="text-center mt-24 text-zinc-500 text-sm font-mono tracking-widest">
+            nonta228 • МЫ НЕ ИГРАЕМ — МЫ КАРАЕМ • 2026
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div id="replayModal">
+        <div class="modal-content relative">
+            <span class="close-btn" onclick="closeReplayModal()">&times;</span>
+            
+            <div class="text-6xl font-black text-red-500 mb-6">ОШИБКА 228</div>
+            <h2 class="text-4xl font-black neon-text mb-8">МАЛО ПТС, ЛОХ</h2>
+            
+            <p class="text-2xl text-zinc-300 mb-10">
+                Иди фарми в пабах ещё 5000 часов.<br>
+                Реплеи для Immortal 10k+, а не для таких как ты.
+            </p>
+            
+            <button 
+                onclick="closeReplayModal()"
+                class="px-12 py-5 bg-gradient-to-r from-red-600 to-pink-600 rounded-2xl text-2xl font-black hover:scale-105 transition-transform shadow-xl shadow-red-500/50">
+                ПОНЯЛ, ПОШЁЛ ФАРМИТЬ 😭
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript для модального окна -->
+    <script>
+        function openReplayModal() {
+            document.getElementById('replayModal').style.display = 'flex';
+        }
+
+        function closeReplayModal() {
+            document.getElementById('replayModal').style.display = 'none';
+        }
+
+        // Закрытие по клику вне модалки
+        window.onclick = function(event) {
+            const modal = document.getElementById('replayModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>
