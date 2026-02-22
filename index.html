@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
         
         :root {
             --neon-purple: #c026d3;
@@ -142,7 +142,7 @@
                     
                     <div class="flex gap-8 text-sm uppercase tracking-widest">
                         <div>
-                            <span class="block text-purple-400 text-3xl font-black">3</span>
+                            <span class="block text-purple-400 text-3xl font-black">4</span>
                             <span class="text-zinc-500">игрока</span>
                         </div>
                         <div>
@@ -156,8 +156,8 @@
                     </div>
                 </div>
                 
-                <!-- Floating heroes -->
-                <div class="relative h-[600px] hidden md:block">
+                <!-- Floating heroes (теперь 4 штуки) -->
+                <div class="relative h-[700px] hidden md:block">
                     <!-- SF -->
                     <div class="absolute right-12 top-20 hero-float" style="animation-delay: 0s">
                         <img src="a5f02dfb40a59019548250280ca23cc0.png" 
@@ -178,11 +178,16 @@
                              class="w-56 drop-shadow-2xl" alt="Lycan">
                         <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-black/70 text-xs px-6 py-1 rounded-full border border-amber-500">k1_zaz</div>
                     </div>
+
+                    <!-- Tinker (Дерека) -->
+                    <div class="absolute left-20 bottom-40 hero-float" style="animation-delay: 4.5s">
+                        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/heroes/tinker_full.png" 
+                             class="w-52 drop-shadow-2xl" alt="Tinker">
+                        <div class="absolute -bottom-3 right-1/2 translate-x-1/2 bg-black/70 text-xs px-6 py-1 rounded-full border border-red-500">Дерека • сынша</div>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Scroll indicator -->
+        </div>        <!-- Scroll indicator -->
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs tracking-widest">
             <span class="animate-bounce">↓</span>
             <span>ПРОКРУТИТЬ ДЛЯ РОСТЕРА</span>
@@ -203,7 +208,7 @@
                 <h2 class="text-6xl md:text-7xl font-black tracking-tighter neon-text">НАШИ ЛЕГЕНДЫ</h2>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 
                 <!-- PLAYER 1: princess nonta -->
                 <div class="card-bg group bg-zinc-900 rounded-3xl overflow-hidden border border-purple-500/20 hover:border-purple-500">
@@ -212,12 +217,10 @@
                              class="absolute inset-0 w-full h-full object-cover brightness-75 group-hover:brightness-100 transition">
                         <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-transparent"></div>
                         
-                        <!-- Role -->
                         <div class="absolute top-8 right-8 bg-purple-600 text-white text-xs font-bold px-6 py-2 rounded-2xl rotate-12 shadow-lg">
                             МИД • GOD TIER
                         </div>
                         
-                        <!-- Player info -->
                         <div class="absolute bottom-0 left-0 right-0 p-8">
                             <div class="flex items-end gap-5">
                                 <img src="https://picsum.photos/id/1011/120/120" 
@@ -232,7 +235,6 @@
                             </div>
                         </div>
                         
-                        <!-- Hero name -->
                         <div class="absolute top-8 left-8 bg-black/70 px-5 py-1 text-sm font-mono tracking-widest rounded-xl">
                             SHADOW FIEND
                         </div>
@@ -257,13 +259,11 @@
                              class="absolute inset-0 w-full h-full object-cover brightness-75 group-hover:brightness-100 transition">
                         <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-transparent"></div>
                         
-                        <!-- Role -->
                         <div class="absolute top-8 right-8 bg-cyan-600 text-white text-xs font-bold px-6 py-2 rounded-2xl -rotate-12 shadow-lg flex items-center gap-2">
                             <span>🇺🇦</span> 
                             САППОРТ
                         </div>
                         
-                        <!-- Player info -->
                         <div class="absolute bottom-0 left-0 right-0 p-8">
                             <div class="flex items-end gap-5">
                                 <img src="https://picsum.photos/id/1005/120/120" 
@@ -277,7 +277,6 @@
                             </div>
                         </div>
                         
-                        <!-- Hero name -->
                         <div class="absolute top-8 left-8 bg-black/70 px-5 py-1 text-sm font-mono tracking-widest rounded-xl">
                             JAKIRO
                         </div>
@@ -302,12 +301,10 @@
                              class="absolute inset-0 w-full h-full object-cover brightness-75 group-hover:brightness-100 transition">
                         <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-transparent"></div>
                         
-                        <!-- Role -->
                         <div class="absolute top-8 right-8 bg-amber-600 text-white text-xs font-bold px-6 py-2 rounded-2xl rotate-6 shadow-lg">
                             OFFLANE • ALPHA
                         </div>
                         
-                        <!-- Player info -->
                         <div class="absolute bottom-0 left-0 right-0 p-8">
                             <div class="flex items-end gap-5">
                                 <img src="https://picsum.photos/id/201/120/120" 
@@ -321,7 +318,6 @@
                             </div>
                         </div>
                         
-                        <!-- Hero name -->
                         <div class="absolute top-8 left-8 bg-black/70 px-5 py-1 text-sm font-mono tracking-widest rounded-xl">
                             LYCAN
                         </div>
@@ -335,6 +331,47 @@
                         <div class="flex justify-between items-center text-xs text-amber-400 font-mono">
                             <div>MAIN: LYCAN</div>
                             <div class="text-amber-400">GPM 920</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLAYER 4: Дерека (Tinker Carry) -->
+                <div class="card-bg group bg-zinc-900 rounded-3xl overflow-hidden border border-red-500/30 hover:border-red-500">
+                    <div class="relative h-96">
+                        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/heroes/tinker_full.png" 
+                             class="absolute inset-0 w-full h-full object-cover brightness-75 group-hover:brightness-100 transition">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-transparent"></div>
+                        
+                        <div class="absolute top-8 right-8 bg-red-600 text-white text-xs font-bold px-6 py-2 rounded-2xl rotate-[-8deg] shadow-lg">
+                            CARRY • TINKER GOD
+                        </div>
+                        
+                        <div class="absolute bottom-0 left-0 right-0 p-8">
+                            <div class="flex items-end gap-5">
+                                <img src="https://picsum.photos/id/237/120/120" 
+                                     class="w-20 h-20 rounded-2xl border-4 border-red-500 object-cover shadow-2xl">
+                                <div>
+                                    <div class="text-4xl font-black tracking-tighter">Дерека</div>
+                                    <div class="text-red-400 flex items-center gap-2 text-xl">
+                                        СЫНША • 1k PTS
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute top-8 left-8 bg-black/70 px-5 py-1 text-sm font-mono tracking-widest rounded-xl border border-red-500/30">
+                            TINKER
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 space-y-4">
+                        <p class="text-zinc-400 leading-relaxed">
+                            Сынша стаи на тинкере. 1k PTS — это не баг, это фича.<br>
+                            Лазеры, ракеты, перезагрузка — и трон уже в руинах.
+                        </p>
+                        <div class="flex justify-between items-center text-xs text-red-400 font-mono">
+                            <div>MAIN: Tinker / PA</div>
+                            <div class="text-amber-400">LASER DMG ∞</div>
                         </div>
                     </div>
                 </div>
